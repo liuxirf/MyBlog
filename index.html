@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+</head>
+<body>
+
+    <div id="blog">loading...</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(document).ready(()=>
+        {
+            //console.log('ready')
+            $.get('2023.03.18.md', (data, status) => {
+                $('#blog').text = data
+            })
+        })
+    </script>
+</body>
+</html>
