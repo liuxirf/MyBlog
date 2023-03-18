@@ -35,7 +35,7 @@
         $(document).ready(()=>
         {
             //console.log('ready')
-            $.get('2023.03.18.md?_=' + new Data().getTime(), (data, status) => {
+            $.get('2023.03.18.md?_=' + new Date().getTime(), (data, status) => {
                 $('#blog').html(marked.parse(data))
             })
         })
