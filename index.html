@@ -2,19 +2,41 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title></title>
+    <link rel="stylesheet" href="css/github-markdown.css">
+    <title>朕的博客</title>
+    <style>
+        body {
+            margin: 0px;
+        }
+
+        div#blog {
+            display: block;
+            border: 1px solid black;
+            border-radius: 4px;
+
+            min-height: 480px;
+            width: 800px;
+
+            padding: 20px 30px;
+            margin-top: 50px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
 
 </head>
 <body>
 
-    <div id="blog">loading...</div>
+    <div id="blog" class="marked-body">loading...</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/marked/4.2.12/marked.min.js" />
+
     <script>
         $(document).ready(()=>
         {
             //console.log('ready')
             $.get('2023.03.18.md', (data, status) => {
-                $('#blog').text(data)
+                $('#blog').html(marked.parse(data))
             })
         })
     </script>
