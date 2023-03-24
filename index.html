@@ -1,17 +1,81 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/github-markdown.css">
     <title>朕的博客</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
             margin: 0px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Style the header */
+        header {
+            background-color: #666;
+            padding: 20px;
+            text-align: center;
+            font-size: 30px;
+            color: white;
+        }
+
+        /* Create two columns/boxes that floats next to each other */
+        nav {
+            float: left;
+            width: 20%;
+            background: #ccc;
+            padding: 20px;
+        }
+
+        /* Style the list inside the menu */
+        nav dl {
+            font-size: 15px; 
+            color: #606060;
+        }
+
+        article {
+            float: left;
+            padding: 20px;
+            width: 80%;
+            background-color: #f1f1f1;
+        }
+
+        /* Clear floats after the columns */
+        section::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        /* Style the footer */
+        footer {
+            background-color: #777;
+            padding: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        /* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
+        @media (max-width: 600px) {
+            nav, article {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        .date {
+            font-size: 15px; 
+            color: #606060;
         }
 
         div#blog {
             display: block;
-            border: 1px solid rgb(143, 140, 140);
+            border: 1px solid #606060;
             border-radius: 4px;
 
             min-height: 480px;
@@ -23,21 +87,43 @@
             margin-right: auto;
         }
     </style>
-
 </head>
 <body>
-
-    <div id="blog" class="marked-body">loading...</div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/marked/4.2.12/marked.min.js"></script>
-
+    <script src="js/marked.min.js"></script>
+    <header>
+        <h2></h2>
+    </header>
+    <section>
+        <nav>
+            <dl>
+                <dt>2023.03</dt>
+                <dd><a class="date" href="#">2023.03.18</a></dd>
+                <dd><a class="date" href="#">2023.03.25</a></dd>
+                <dt>2023.04</dt>
+                <dd><a class="date" href="#">xxx</a></dd>
+            </dl> 
+        </nav>
+        <article>
+            <h1></h1>
+            <div id="blog"></div>
+        </article>
+    </section>
+    <footer>
+        <p>Footer</p>
+    </footer>
+    
     <script>
         $(document).ready(()=>
         {
-            //console.log('ready')
-            $.get('2023.03.18.md?_=' + new Date().getTime(), (data, status) => {
+            $(".date").click(function(){
+                var article_name = $(this).text() + ".md"
+                console.log(article_name)
+                $.get(article_name + '?_=' + new Date().getTime(), (data, status) => {
                 $('#blog').html(marked.parse(data))
             })
+            })
+            
         })
     </script>
 </body>
