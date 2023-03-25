@@ -102,17 +102,6 @@
             margin-right: auto;
         }
     </style>
-    <script>
-        function reset_phone() {
-            var agent = window.navigator.userAgent;
-            console.log(agent)
-
-            if(agent.match(/(phone|iPhone|ios|Android|Mobile)/i)) {
-                cover = document.getElementsById("cover");
-                cover.style.maxWidth = "200px";
-            }
-        }
-    </script>
 </head>
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -145,15 +134,22 @@
     <script>
         $(document).ready(()=>
         {
+            /* 封面适配手机大小*/
+            var agent = window.navigator.userAgent;
+            console.log(agent)
+            if(agent.match(/(phone|iPhone|ios|Android|Mobile)/i)) {
+                cover = document.getElementsById("cover");
+                cover.style.maxWidth = "200px";
+            }
+
             $(".date").click(function(){
                 $("img").hide()
                 var article_name = $(this).text() + ".md"
                 console.log(article_name)
                 $.get(article_name + '?_=' + new Date().getTime(), (data, status) => {
-                $('#blog').html(marked.parse(data))
+                    $('#blog').html(marked.parse(data))
+                })
             })
-            })
-            
         })
     </script>
 </body>
