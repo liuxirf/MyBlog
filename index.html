@@ -135,6 +135,7 @@
         $(document).ready(()=>
         {
             $(".date").click(function(){
+                $("img").hide()
                 var article_name = $(this).text() + ".md"
                 console.log(article_name)
                 $.get(article_name + '?_=' + new Date().getTime(), (data, status) => {
