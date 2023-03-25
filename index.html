@@ -64,6 +64,8 @@
         img {
             width: auto;
             height: 715px;
+            object-fit: cover;
+            border-radius: 4px;
         }
 
         /* Style the footer */
@@ -97,8 +99,6 @@
             background-image: url('pic/sunflower.jpeg');
             background-repeat: repeat;
             */
-
-            min-height: 600px;
             height: auto;
             width: auto;
 
@@ -128,11 +128,7 @@
         </nav>
         <article>
             <div id="blog">
-                <picture>
-                    <source media="(max-width: 200px)" srcset="pic/sunflower_phone.png">
-                    <source media="(max-height: 600px)" srcset="pic/sunflower.jpeg">
-                    <img src="pic/sunflower.jpeg">
-                </picture>
+                <img src="pic/sunflower.jpeg">
             </div>
         </article>
     </section>
@@ -148,11 +144,11 @@
             console.log(agent)
             cover = document.getElementById("cover");
             if(agent.match(/(phone|iPhone|ios|Android|Mobile)/i)) {
-                cover.style.maxWidth = "200px";
+                cover.style.width = "300px";
             }
 
             $(".date").click(function(){
-                $('#img').hide();
+                $('img').hide();
                 var article_name = $(this).text() + ".md"
                 console.log(article_name)
                 $.get(article_name + '?_=' + new Date().getTime(), (data, status) => {
