@@ -102,6 +102,17 @@
             margin-right: auto;
         }
     </style>
+    <script>
+        function reset_phone() {
+            var agent = window.navigator.userAgent;
+            console.log(agent)
+
+            if(agent.match(/(phone|iPhone|ios|Android|Mobile)/i)) {
+                cover = document.getElementsById("cover");
+                cover.style.maxWidth = "200px";
+            }
+        }
+    </script>
 </head>
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
@@ -123,7 +134,7 @@
         </nav>
         <article>
             <div id="blog">
-                <img src="pic/sunflower.jpeg">
+                <img id="cover" src="pic/sunflower.jpeg">
             </div>
         </article>
     </section>
