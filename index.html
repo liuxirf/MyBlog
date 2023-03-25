@@ -115,11 +115,11 @@
 <body>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="js/marked.min.js"></script>
-    <header>
-        <h4>朕的博客</h4>
+    <header id="header">
+        <h4>记录点击生活</h4>
     </header>
     <section>
-        <nav>
+        <nav id="menu">
             <dl>
                 <!--
                 <dt>2023.04</dt>
@@ -131,13 +131,13 @@
                 <dd><a class="date" href="#">2023.03.18</a></dd>
             </dl> 
         </nav>
-        <article>
+        <article id="article">
             <div id="blog">
                 <img id="cover" src="pic/sunflower_pc.jpeg">
             </div>
         </article>
     </section>
-    <footer>
+    <footer id="footer">
         <p>生活小栈</p>
     </footer>
     
@@ -148,6 +148,10 @@
             var agent = window.navigator.userAgent;
             console.log(agent)
             cover = document.getElementById("cover");
+            header = document.getAnimations("header");
+            footer = document.getAnimations("footer");
+            menu = document.getAnimations("menu");
+            article = document.getElementById("article");
             if(agent.match(/(phone|iPhone|ios|Android|Mobile)/i)) {
                 cover.src = "pic/sunflower_phone3.jpeg";
             }
