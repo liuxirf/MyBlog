@@ -131,7 +131,7 @@
                 <picture>
                     <source media="(max-width: 200px)" srcset="pic/sunflower_phone.png">
                     <source media="(max-height: 600px)" srcset="pic/sunflower.jpeg">
-                    <img src="pic/sunflowe.jpeg">
+                    <img src="pic/sunflower.jpeg">
                 </picture>
             </div>
         </article>
@@ -152,7 +152,7 @@
             }
 
             $(".date").click(function(){
-                $('#blog').style.backgroundImage();
+                $('#img').hide();
                 var article_name = $(this).text() + ".md"
                 console.log(article_name)
                 $.get(article_name + '?_=' + new Date().getTime(), (data, status) => {
