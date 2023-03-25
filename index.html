@@ -61,10 +61,10 @@
         }
 
         img {
-            width: auto;
-            height: 715px;
+            width: 100%;
             object-fit: fill;
             border-radius: 4px;
+            padding: 10px;
         }
 
         /* Style the footer */
@@ -101,7 +101,7 @@
             height: auto;
             width: auto;
 
-            padding: 20px 20px;
+            padding: 10px;
             margin-left: auto;
             margin-right: auto;
         }
@@ -127,7 +127,7 @@
         </nav>
         <article>
             <div id="blog">
-                <img id="cover" src="pic/sunflower_pc.jpeg">
+                <img id="cover" src="pic/sunflower_phone4.png">
             </div>
         </article>
     </section>
@@ -143,8 +143,7 @@
             console.log(agent)
             cover = document.getElementById("cover");
             if(agent.match(/(phone|iPhone|ios|Android|Mobile)/i)) {
-                cover.src = "pic/sunflower_phone2.jpeg";
-                cover.style.width = "320px";
+                cover.src = "pic/sunflower_phone3.jpeg";
             }
 
             $(".date").click(function(){
