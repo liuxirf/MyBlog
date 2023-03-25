@@ -63,7 +63,7 @@
 
         img {
             width: auto;
-            height: 600px;
+            height: 715px;
         }
 
         /* Style the footer */
@@ -92,6 +92,11 @@
             display: block;
             border: 1px solid #7b8b6f;  /* 莫兰迪-绿色*/
             border-radius: 4px;
+
+            /* 
+            background-image: url('pic/sunflower.jpeg');
+            background-repeat: repeat;
+            */
 
             min-height: 600px;
             height: auto;
@@ -123,7 +128,11 @@
         </nav>
         <article>
             <div id="blog">
-                <img id="cover" src="pic/sunflower.jpeg">
+                <picture>
+                    <source media="(max-width: 200px)" srcset="pic/sunflower_phone.png">
+                    <source media="(max-height: 600px)" srcset="pic/sunflower.jpeg">
+                    <img src="pic/sunflowe.jpeg">
+                </picture>
             </div>
         </article>
     </section>
@@ -137,13 +146,13 @@
             /* 封面适配手机大小*/
             var agent = window.navigator.userAgent;
             console.log(agent)
+            cover = document.getElementById("cover");
             if(agent.match(/(phone|iPhone|ios|Android|Mobile)/i)) {
-                cover = document.getElementById("cover");
                 cover.style.maxWidth = "200px";
             }
 
             $(".date").click(function(){
-                $("img").hide()
+                $('#blog').style.backgroundImage();
                 var article_name = $(this).text() + ".md"
                 console.log(article_name)
                 $.get(article_name + '?_=' + new Date().getTime(), (data, status) => {
