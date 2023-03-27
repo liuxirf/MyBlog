@@ -148,16 +148,19 @@
             var agent = window.navigator.userAgent;
             console.log(agent)
             cover = document.getElementById("cover");
-            header = document.getAnimations("header");
-            footer = document.getAnimations("footer");
-            menu = document.getAnimations("menu");
+            header = document.getElementById("header");
+            footer = document.getElementById("footer");
+            menu = document.getElementById("menu");
             article = document.getElementById("article");
             if(agent.match(/(phone|iPhone|ios|Android|Mobile)/i)) {
+                
                 cover.src = "pic/sunflower_phone3.jpeg";
+                /* 莫兰迪-粉色系列
                 header.style.backgroundColor = "#C89E9C";
                 menu.style.backgroundColor = "#F2EAE3";
                 article.style.backgroundColor = "#fff0f5";
                 footer.style.backgroundColor = "#a2807e";   
+                */
             }
 
             $(".date").click(function(){
