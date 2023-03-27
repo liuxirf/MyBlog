@@ -133,7 +133,7 @@
         </nav>
         <article>
             <div id="blog">
-                <img src="pic/sunflower_pc.jpeg">
+                <img id="cover" src="pic/sunflower_pc.jpeg">
             </div>
         </article>
     </section>
@@ -147,10 +147,10 @@
             /* 封面适配手机大小*/
             var agent = window.navigator.userAgent;
             console.log(agent)
-            
+            cover = document.getElementById("cover");
             menu = document.getElementById("menu");
             if(agent.match(/(phone|iPhone|ios|Android|Mobile)/i)) {
-                img.src = "pic/sunflower_phone3.jpeg";
+                cover.src = "pic/sunflower_phone3.jpeg";
                 /* 莫兰迪-粉色系列
                 menu.style.backgroundColor = "#F2EAE3";
                 header.style.backgroundColor = "#C89E9C";
